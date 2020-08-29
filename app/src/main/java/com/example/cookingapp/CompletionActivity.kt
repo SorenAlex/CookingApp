@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.cookingapp.recipe.IngredientsAdapter
 import com.example.cookingapp.recipe.StepsAdapter
 import kotlinx.android.synthetic.main.activity_completion.*
@@ -25,9 +26,16 @@ class CompletionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_completion)
 
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
         val mReturnButton: Button = findViewById(R.id.button_return)
         mReturnButton.setOnClickListener {
-            finish()
+            val intent = Intent(this@CompletionActivity, MainActivity::class.java)
+
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP;
+            intent.putExtra("exp", 50.0)
+            intent.putExtra("coins", 12)
+            startActivity(intent)
         }
 
         val mPhotoButton: Button = findViewById(R.id.button_save_photo)
