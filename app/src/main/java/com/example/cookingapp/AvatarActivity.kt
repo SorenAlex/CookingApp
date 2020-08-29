@@ -8,10 +8,16 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cookingapp.avatar.AvatarHeadFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_completion.*
+
+private const val NUM_PAGES = 3
 
 class AvatarActivity : AppCompatActivity() {
 
@@ -21,20 +27,34 @@ class AvatarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_avatar)
 
-//        val mViewPager: ViewPager2 = findViewById(R.id.viewpager_customisation)
-//        val mTabLayout: TabLayout = findViewById(R.id.tabs_avatar)
-//
-//        val mPagerAdapter = AvatarPagerAdapter(this)
-//        mViewPager.adapter = mPagerAdapter
-//
-//        TabLayoutMediator(mTabLayout, mViewPager) {tab, position ->
-//            when (position) {
-//                0 -> tab.text = "Head"
-//                1 -> tab.text = "Top"
-//                2 -> tab.text = "Bottom"
-//            }
-//        }.attach()
+        val mViewPager: ViewPager2 = findViewById(R.id.viewpager_customisation)
+        val mTabLayout: TabLayout = findViewById(R.id.tabs_avatar)
 
+        val mPagerAdapter = AvatarPagerAdapter(this)
+        mViewPager.adapter = mPagerAdapter
+
+        TabLayoutMediator(mTabLayout, mViewPager) {tab, position ->
+            when (position) {
+                0 -> tab.text = "Head"
+                1 -> tab.text = "Top"
+                2 -> tab.text = "Bottom"
+            }
+        }.attach()
+
+    }
+
+    private inner class AvatarPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int = NUM_PAGES
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> AvatarHeadFragment.newInstance()
+                1 -> AvatarHeadFragment.newInstance()
+                2 -> AvatarHeadFragment.newInstance()
+                else -> AvatarHeadFragment.newInstance()
+            }
+
+        }
     }
 
 }
