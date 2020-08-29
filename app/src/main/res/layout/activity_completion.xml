@@ -40,6 +40,23 @@
         android:textSize="20sp"
         android:text="12 coins earned"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="Level Up!"
+        android:textColor="#eb8034"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="New recipes unlocked!"
+        android:textColor="#eb8034"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

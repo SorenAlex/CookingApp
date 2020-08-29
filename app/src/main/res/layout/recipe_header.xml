@@ -16,11 +16,16 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:hint="Search Keyword"/>
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="36dp"
             android:layout_height="wrap_content"
-            android:text="Search"/>
+            android:background="#00000000"
+            android:drawableLeft="@drawable/ic_baseline_search"
+            android:drawablePadding="4dp"/>
         <ImageView
+            android:src="@drawable/ic_baseline_filter_list"
+            android:tint="#eb8034"
             android:id="@+id/button_filter_expander"
             android:layout_width="32dp"
             android:layout_height="32dp"
