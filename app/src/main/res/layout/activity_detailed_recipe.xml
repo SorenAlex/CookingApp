@@ -39,7 +39,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Recipe Name"
-                        android:textSize="18sp" />
+                        android:textColor="#f5c680"
+                        android:textStyle="bold"
+                        android:textSize="32sp" />
 
                     <TextView
                         android:id="@+id/text_detail_recipe_desc"
@@ -53,49 +55,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@id/text_detail_recipe_prep_time"
-                        android:text="Difficulty" />
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Difficulty:" />
 
                     <TextView
                         android:id="@+id/text_detail_recipe_prep_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:text="Prep time" />
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Est. time:" />
                 </RelativeLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentRight="true"
-                        android:background="#D83" />
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:background="#353" />
-                </RelativeLayout>
-
-
-            </LinearLayout>
         </LinearLayout>
 
         <TextView
+            android:textColor="#f5c680"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -115,6 +94,8 @@
             tools:listitem="@layout/ingredient_item" />
 
         <TextView
+            android:textColor="#f5c680"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"

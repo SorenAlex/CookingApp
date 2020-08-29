@@ -20,6 +20,8 @@
         android:layout_marginTop="72dp"
         android:layout_gravity="center"
         android:textSize="32dp"
+        android:textColor="#f5c680"
+        android:textStyle="bold"
         android:text="Recipe Complete"/>
 
     <TextView
@@ -45,11 +47,17 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
         <Button
+            android:background="#ffe6a1"
+            android:layout_margin="8dp"
+            android:textStyle="bold"
             android:id="@+id/button_save_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save a photo"/>
+            android:text="   Save a photo   "/>
         <Button
+            android:background="#ffe6a1"
+            android:layout_margin="8dp"
+            android:textStyle="bold"
             android:id="@+id/button_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

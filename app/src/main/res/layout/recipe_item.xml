@@ -1,87 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginRight="16dp"
-    android:background="#CCC"
+    android:orientation="vertical"
+    android:background="#FFF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_margin="16dp"
-        android:background="#999"/>
-
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/text_recipe_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Recipe Name"/>
-            <TextView
-                android:id="@+id/text_recipe_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text_recipe_name"
-                android:text="Feeds 3 for Cost"/>
-            <TextView
-                android:id="@+id/text_recipe_difficulty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/text_recipe_prep_time"
-                android:text="Difficulty"/>
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_margin="16dp"
+            android:background="#999"/>
 
-            <TextView
-                android:id="@+id/text_recipe_prep_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:layout_alignParentBottom="true"
-                android:text="Prep time" />
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="12dp"
+                android:paddingBottom="16dp">
+                <TextView
+                    android:id="@+id/text_recipe_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:text="Recipe Name"/>
+
+                <TextView
+                    android:id="@+id/text_recipe_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_recipe_name"
+                    android:text="Feeds 3 for Cost" />
+                <TextView
+                    android:id="@+id/text_recipe_difficulty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/text_recipe_prep_time"
+                    android:textColor="#000"
+                    android:text="Difficulty:"/>
+
+                <TextView
+                    android:id="@+id/text_recipe_prep_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_alignParentBottom="true"
+                    android:text="Est. time:" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp">
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:background="#D83"
+                    android:paddingBottom="24dp"/>
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="#353"/>
+            </RelativeLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <View
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentRight="true"
-                android:background="#D83"/>
-            <View
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:background="#353"/>
-        </RelativeLayout>
-
-
-    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_avatar"
+        android:layout_width="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="4dp"
+        android:background="#ffe6a1"/>
 
 </LinearLayout>
