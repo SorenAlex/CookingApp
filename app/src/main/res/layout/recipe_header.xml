@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Search"/>
         <ImageView
+            android:id="@+id/button_filter_expander"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center_vertical"
@@ -36,23 +37,34 @@
         android:visibility="gone"
         android:orientation="vertical"
         tools:visibility="visible">
-        <RadioButton
+        <RadioGroup
+            android:id="@+id/filter_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show all"
-            android:checked="true"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show completed only"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show favourites only"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show new only"/>
+            android:checkedButton="@id/radio_show_all">
+            <RadioButton
+                android:id="@+id/radio_show_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show all"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/radio_show_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show completed only"/>
+            <RadioButton
+                android:id="@+id/radio_show_favourites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show favourites only"/>
+            <RadioButton
+                android:id="@+id/radio_show_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show new only"/>
+        </RadioGroup>
+
     </LinearLayout>
 
 

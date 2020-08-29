@@ -18,5 +18,7 @@ data class Recipe(
 
     var isFavourite: Boolean = false,
 
-    var isComplete: Boolean = false
+    var isComplete: Boolean = false,
+
+    var ingredients: String = "nothing"
 )

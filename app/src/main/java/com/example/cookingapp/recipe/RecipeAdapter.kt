@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,20 @@ class RecipeAdapter internal constructor(
     private var recipes = emptyList<Recipe>()
     var onItemClick: ((Recipe) -> Unit)? = null
 
-    inner class RecipeHeader(itemView: View): RecyclerView.ViewHolder(itemView) {}
+    inner class RecipeHeader(itemView: View): RecyclerView.ViewHolder(itemView) {
+        val mFilterKeyButton: ImageView = itemView.findViewById(R.id.button_filter_expander)
+        val mFilterContainer: LinearLayout = itemView.findViewById(R.id.container_search_filter)
+
+        init {
+            mFilterKeyButton.setOnClickListener {
+                if (mFilterContainer.visibility == View.GONE) {
+                    mFilterContainer.visibility = View.VISIBLE
+                } else {
+                    mFilterContainer.visibility = View.GONE
+                }
+            }
+        }
+    }
 
     inner class RecipeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val mRecipeName: TextView = itemView.findViewById(R.id.text_recipe_name)

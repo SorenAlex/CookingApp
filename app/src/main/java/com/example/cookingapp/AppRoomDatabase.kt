@@ -33,10 +33,13 @@ public abstract class AppRoomDatabase : RoomDatabase() {
         suspend fun populateRecipeTable(recipeDao: RecipeDao) {
             var recipe = Recipe("Dumplings",)
             recipeDao.createRecipe(recipe)
+
             recipe = Recipe("Steak")
             recipe.feedNumber = 2
             recipe.difficulty = "Medium"
+            recipe.ingredients = "carrots/cats/cows/bees/big carrots"
             recipeDao.createRecipe(recipe)
+
             recipe = Recipe("Ginger Chicken")
             recipe.cost = 15.55
             recipeDao.createRecipe(recipe)

@@ -1,5 +1,6 @@
 package com.example.cookingapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -28,5 +29,16 @@ class MainActivity : AppCompatActivity() {
                 recipeAdapter.setRecipes(it)
             }
         })
+
+        recipeAdapter.onItemClick = {recipe ->
+            val intent = Intent(this@MainActivity, DetailedRecipeActivity::class.java)
+            intent.putExtra("name",recipe.name)
+            intent.putExtra("feedNumber",recipe.feedNumber)
+            intent.putExtra("cost",recipe.cost)
+            intent.putExtra("difficulty",recipe.difficulty)
+            intent.putExtra("prepTimeMin",recipe.prepTimeMin)
+            intent.putExtra("ingredients",recipe.ingredients)
+            startActivity(intent)
+        }
     }
 }
