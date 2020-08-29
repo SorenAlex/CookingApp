@@ -42,9 +42,19 @@ class DetailedRecipeActivity : AppCompatActivity() {
         val mIngredientsListView: LinearLayout = findViewById(R.id.list_ingredients)
         //populate ingredients
         for (ingredient in ingredientsList) {
-            val checkBox = CheckBox(this)
-            checkBox.text = ingredient
-            mIngredientsListView.addView(checkBox)
+            if (ingredient.first() == '#') {
+                val image = ImageView(this)
+                image.maxHeight = 500
+                image.maxWidth = 500
+                image.setPadding(72, 0,0, 0)
+                val packImage = ContextCompat.getDrawable(this, getDrawableIdByName(ingredient))
+                image.setImageDrawable(packImage)
+            }else {
+                val checkBox = CheckBox(this)
+                checkBox.text = ingredient
+                mIngredientsListView.addView(checkBox)
+            }
+
         }
 
         val stepsList = parseSteps(stepsString)
