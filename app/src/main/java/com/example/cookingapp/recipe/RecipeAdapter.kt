@@ -65,7 +65,7 @@ class RecipeAdapter internal constructor(
             val current = recipes[position-1]
 
             holder.mRecipeName.text = current.name
-            holder.mRecipeDesc.text = "Feeds ${current.feedNumber} for $${current.cost}"
+            holder.mRecipeDesc.text = current.description
             holder.mRecipeDifficulty.text = "Difficulty: ${current.difficulty}"
             holder.mRecipeTime.text = "Est. Time: ${current.prepTimeMin} min"
 

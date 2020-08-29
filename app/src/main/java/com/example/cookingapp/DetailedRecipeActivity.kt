@@ -20,6 +20,7 @@ class DetailedRecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed_recipe)
 
+        val description = intent.getStringExtra("description")
         val name = intent.getStringExtra("name")
         val imageTag = intent.getStringExtra("imageTag")
         val feedNumber = intent.getIntExtra("feedNumber", 1)
@@ -30,9 +31,9 @@ class DetailedRecipeActivity : AppCompatActivity() {
         val stepsString = intent.getStringExtra("steps")
 
         text_detail_recipe_name.text = name
-        text_detail_recipe_desc.text = "Feeds ${feedNumber} for ${cost}"
-        text_detail_recipe_difficulty.text = "${difficulty} Difficulty"
-        text_detail_recipe_prep_time.text = "Takes ${prepTime} mins"
+        text_detail_recipe_desc.text = description
+        text_detail_recipe_difficulty.text = "Difficulty: ${difficulty}"
+        text_detail_recipe_prep_time.text = "Est. Time: ${prepTime} mins"
 
         val mRecipeImage: ImageView = findViewById(R.id.recipe_image_detailed)
         val packImage = ContextCompat.getDrawable(this, getDrawableIdByName(imageTag))

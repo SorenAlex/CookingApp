@@ -18,6 +18,8 @@ data class Recipe(
 
     var prepTimeMin: Int = 50,
 
+    var description: String = "Placeholder",
+
     var isFavourite: Boolean = false,
 
     var isComplete: Boolean = false,

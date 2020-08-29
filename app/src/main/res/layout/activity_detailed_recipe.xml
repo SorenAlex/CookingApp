@@ -11,67 +11,61 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/text_detail_recipe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recipe Name"
+                android:textColor="#f5c680"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/recipe_image_detailed"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:layout_margin="16dp"
                 android:background="#999" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
+            <TextView
+                android:id="@+id/text_detail_recipe_difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/text_detail_recipe_prep_time"
+                android:text="Difficulty:"
+                android:textColor="#000"
+                android:textStyle="bold" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/text_detail_recipe_prep_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Est. time:"
+                android:textColor="#000"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/text_detail_recipe_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Recipe Name"
-                        android:textColor="#f5c680"
-                        android:textStyle="bold"
-                        android:textSize="32sp" />
-
-                    <TextView
-                        android:id="@+id/text_detail_recipe_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/text_detail_recipe_name"
-                        android:text="Feeds 3 for Cost" />
-
-                    <TextView
-                        android:id="@+id/text_detail_recipe_difficulty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@id/text_detail_recipe_prep_time"
-                        android:textColor="#000"
-                        android:textStyle="bold"
-                        android:text="Difficulty:" />
-
-                    <TextView
-                        android:id="@+id/text_detail_recipe_prep_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:textColor="#000"
-                        android:textStyle="bold"
-                        android:text="Est. time:" />
-                </RelativeLayout>
-            </LinearLayout>
+            <TextView
+                android:id="@+id/text_detail_recipe_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_detail_recipe_name"/>
 
         </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs_avatar"
+            android:layout_width="240dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="2dp"
+            android:background="#ffe6a1"/>
 
         <TextView
             android:textColor="#f5c680"
