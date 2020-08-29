@@ -78,6 +78,15 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             headPack.packImage = "hair_kyoshi"
             headPackDao.createHeadPack(headPack)
 
+            headPack = HeadPack("bgFry")
+            headPack.packImage = "bg_fry"
+            headPack.packSet = "bg"
+            headPackDao.createHeadPack(headPack)
+
+            headPack = HeadPack("bgHat")
+            headPack.packImage = "bg_hat"
+            headPack.packSet = "bg"
+            headPackDao.createHeadPack(headPack)
         }
 
         suspend fun populateUserTable(userDao: UserDao) {

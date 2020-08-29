@@ -3,8 +3,11 @@ package com.example.cookingapp
 import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Context
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.example.cookingapp.user.User
 
 fun getDrawableIdByName(name: String) = try {
@@ -13,8 +16,32 @@ fun getDrawableIdByName(name: String) = try {
     error("No drawable with name $name")
 }
 
+fun makeToast(message: String, context: Context) {
+    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+}
+
+
 fun updateCoinText(user: User, coinText: TextView) {
     coinText.text = (user.coins).toString() + " coins"
+}
+
+fun setupAvatarImage(user: User, image: ImageView, mainViewModel: MainViewModel) {
+    val hair = user.hair
+    val bg = user.background
+
+    if (bg == "white") {
+        user.image = "aang"
+    } else if (bg == "hat" && hair == "aang") {
+        user.image = "aang_hat"
+    } else if (bg == "hat" && hair == "kyoshi") {
+        user.image = "kyoshi_hat"
+    } else if (bg == "fry" && hair == "aang") {
+        user.image = "aang_fry"
+    } else if (bg == "fry" && hair == "kyoshi") {
+        user.image = "kyoshi_fry"
+    }
+
+    mainViewModel.updateUser(user)
 }
 
 fun updateLevelBar(user: User, mainViewModel: MainViewModel,

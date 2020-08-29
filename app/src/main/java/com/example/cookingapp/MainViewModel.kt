@@ -52,6 +52,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         userRepository.update(user)
     }
 
+    fun updateHeadPack(headPack: HeadPack) = viewModelScope.launch(Dispatchers.IO) {
+        headPackRepository.updateHeadPack(headPack)
+    }
+
     // User update state functions
     fun notifyUserNeedUpdate() {
         userNeedUpdateBool.value = true

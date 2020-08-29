@@ -16,7 +16,7 @@ import com.example.cookingapp.avatar.headPack.HeadPack
 import com.example.cookingapp.avatar.headPack.HeadPackAdapter
 import com.example.cookingapp.makeToast
 
-class AvatarHeadFragment: Fragment() {
+class AvatarBackgroundFragment: Fragment() {
 
     lateinit var rootView: View
     lateinit var recyclerView: RecyclerView
@@ -25,8 +25,8 @@ class AvatarHeadFragment: Fragment() {
     private var userCoins = 0
 
     companion object {
-        fun newInstance(): AvatarHeadFragment {
-            return AvatarHeadFragment()
+        fun newInstance(): AvatarBackgroundFragment {
+            return AvatarBackgroundFragment()
         }
     }
 
@@ -46,7 +46,7 @@ class AvatarHeadFragment: Fragment() {
         mainViewModel.currentHeadPacks.observe(viewLifecycleOwner, Observer {
             val list = mutableListOf<HeadPack>()
             for (pack in it) {
-                if (pack.packSet == "hair") {
+                if (pack.packSet == "bg") {
                     list.add(pack)
                 }
             }

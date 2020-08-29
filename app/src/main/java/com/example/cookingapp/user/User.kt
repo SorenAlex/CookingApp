@@ -15,6 +15,10 @@ data class User(
 
     var image: String = "aang",
 
+    var hair: String = "aang",
+
+    var background: String = "white",
+
     @ColumnInfo(name = "current_exp")
     var currentExp: Double = 0.0,
 

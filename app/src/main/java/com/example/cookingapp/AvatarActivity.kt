@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cookingapp.avatar.AvatarBackgroundFragment
 import com.example.cookingapp.avatar.AvatarHeadFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -56,6 +57,8 @@ class AvatarActivity : AppCompatActivity() {
                 mCoinText.text = "${it.coins} coins"
                 mLevelText.text = "Level ${it.level}"
 
+                setupAvatarImage(it, mAvatarImage, mainViewModel)
+
                 val avatarImage = ContextCompat.getDrawable(this, getDrawableIdByName(it.image))
                 mAvatarImage.setImageDrawable(avatarImage)
             }
@@ -69,7 +72,7 @@ class AvatarActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> AvatarHeadFragment.newInstance()
-                1 -> AvatarHeadFragment.newInstance()
+                1 -> AvatarBackgroundFragment.newInstance()
                 2 -> AvatarHeadFragment.newInstance()
                 else -> AvatarHeadFragment.newInstance()
             }
