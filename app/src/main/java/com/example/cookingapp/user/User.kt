@@ -13,6 +13,8 @@ data class User(
     @ColumnInfo(name = "level")
     var level: Int= 1,
 
+    var image: String = "aang",
+
     @ColumnInfo(name = "current_exp")
     var currentExp: Double = 0.0,
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val mCoinText: TextView = findViewById(R.id.main_coin_text)
         val mLevelText: TextView = findViewById(R.id.main_level_text)
         val mLevelBar: ProgressBar = findViewById(R.id.main_level_bar)
+        val mAvatar: ImageView = findViewById(R.id.landing_avatar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_recipes)
         val recipeAdapter = RecipeAdapter(this)
@@ -61,7 +63,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
-
+                val avatarImage = ContextCompat.getDrawable(this, getDrawableIdByName(it.image))
+                mAvatar.setImageDrawable(avatarImage)
 
                 updateLevelBar(it, mainViewModel, mLevelBar, mLevelText)
                 updateCoinText(it, mCoinText)
@@ -82,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val mAvatarImage: ImageView = findViewById(R.id.main_avatar)
+        val mAvatarImage: ImageView = findViewById(R.id.landing_avatar)
         mAvatarImage.setOnClickListener {
             val intent = Intent(this@MainActivity, AvatarActivity::class.java)
             startActivity(intent)

@@ -8,7 +8,7 @@ data class HeadPack(
     @PrimaryKey
     val name: String,
 
-    val packImage: String = "ic_placeholder",
+    var packImage: String = "ic_placeholder",
 
     var cost: Int = 20,
 

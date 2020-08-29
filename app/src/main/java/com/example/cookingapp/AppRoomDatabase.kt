@@ -70,18 +70,14 @@ public abstract class AppRoomDatabase : RoomDatabase() {
         }
 
         suspend fun populateHeadPackTable(headPackDao: HeadPackDao) {
-            var headPack = HeadPack("hair 1")
+            var headPack = HeadPack("hairAang")
+            headPack.packImage = "hair_aang"
             headPackDao.createHeadPack(headPack)
-            headPack = HeadPack("hair 2")
+
+            headPack = HeadPack("hairKyoshi")
+            headPack.packImage = "hair_kyoshi"
             headPackDao.createHeadPack(headPack)
-            headPack = HeadPack("hair 3")
-            headPackDao.createHeadPack(headPack)
-            headPack = HeadPack("hair 4")
-            headPackDao.createHeadPack(headPack)
-            headPack = HeadPack("hair 5")
-            headPackDao.createHeadPack(headPack)
-            headPack = HeadPack("hair 6")
-            headPackDao.createHeadPack(headPack)
+
         }
 
         suspend fun populateUserTable(userDao: UserDao) {

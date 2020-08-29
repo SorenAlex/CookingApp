@@ -5,11 +5,9 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
@@ -38,6 +36,7 @@ class AvatarActivity : AppCompatActivity() {
         val mLevelBar: ProgressBar = findViewById(R.id.avatar_levelbar)
         val mLevelText: TextView = findViewById(R.id.avatar_level_text)
         val mCoinText: TextView = findViewById(R.id.avatar_coin_text)
+        val mAvatarImage: ImageView = findViewById(R.id.main_avatar)
 
         val mPagerAdapter = AvatarPagerAdapter(this)
         mViewPager.adapter = mPagerAdapter
@@ -56,6 +55,9 @@ class AvatarActivity : AppCompatActivity() {
                 mLevelBar.progress = ((it.currentExp/it.expToLevel)*1000).toInt()
                 mCoinText.text = "${it.coins} coins"
                 mLevelText.text = "Level ${it.level}"
+
+                val avatarImage = ContextCompat.getDrawable(this, getDrawableIdByName(it.image))
+                mAvatarImage.setImageDrawable(avatarImage)
             }
         })
 
