@@ -56,10 +56,10 @@ class DetailedRecipeActivity : AppCompatActivity() {
     }
 
     private fun parseIngredients(ingredientsString: String): List<String> {
-        return ingredientsString.split("/")
+        return ingredientsString.split("_/")
     }
 
     private fun parseSteps(stepsString: String): List<String> {
-        return stepsString.split("/")
+        return stepsString.split("_/")
     }
 }

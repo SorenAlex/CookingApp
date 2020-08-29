@@ -6,16 +6,21 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cookingapp.avatar.AvatarHeadFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_completion.*
+import org.w3c.dom.Text
 
 private const val NUM_PAGES = 3
 
@@ -30,6 +35,10 @@ class AvatarActivity : AppCompatActivity() {
         val mViewPager: ViewPager2 = findViewById(R.id.viewpager_customisation)
         val mTabLayout: TabLayout = findViewById(R.id.tabs_avatar)
 
+        val mLevelBar: ProgressBar = findViewById(R.id.avatar_levelbar)
+        val mLevelText: TextView = findViewById(R.id.avatar_level_text)
+        val mCoinText: TextView = findViewById(R.id.avatar_coin_text)
+
         val mPagerAdapter = AvatarPagerAdapter(this)
         mViewPager.adapter = mPagerAdapter
 
@@ -40,6 +49,15 @@ class AvatarActivity : AppCompatActivity() {
                 2 -> tab.text = "Bottom"
             }
         }.attach()
+
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        mainViewModel.currentUser.observe(this, Observer { user ->
+            user?.let {
+                mLevelBar.progress = ((it.currentExp/it.expToLevel)*1000).toInt()
+                mCoinText.text = "${it.coins} coins"
+                mLevelText.text = "Level ${it.level}"
+            }
+        })
 
     }
 

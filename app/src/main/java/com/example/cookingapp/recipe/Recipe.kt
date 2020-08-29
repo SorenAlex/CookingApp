@@ -24,5 +24,5 @@ data class Recipe(
 
     var ingredients: String = "nothing",
 
-    var steps: String = "cry/die"
+    var steps: String = "cry_/die"
 )

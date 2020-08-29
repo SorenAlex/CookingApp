@@ -9,17 +9,20 @@ import com.example.cookingapp.avatar.headPack.HeadPack
 import com.example.cookingapp.avatar.headPack.HeadPackDao
 import com.example.cookingapp.recipe.Recipe
 import com.example.cookingapp.recipe.RecipeDao
+import com.example.cookingapp.user.User
+import com.example.cookingapp.user.UserDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Recipe::class, HeadPack::class],
+    entities = [Recipe::class, HeadPack::class, User::class],
     version = 1,
     exportSchema = false)
 public abstract class AppRoomDatabase : RoomDatabase() {
     
     abstract fun recipeDao(): RecipeDao
     abstract fun headPackDao(): HeadPackDao
+    abstract fun userDao(): UserDao
 
     private class AppDatabaseCallback(
         private val scope: CoroutineScope
@@ -30,6 +33,7 @@ public abstract class AppRoomDatabase : RoomDatabase() {
                 scope.launch {
                     populateRecipeTable(database.recipeDao())
                     populateHeadPackTable(database.headPackDao())
+                    populateUserTable(database.userDao())
                 }
             }
         }
@@ -41,7 +45,7 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             recipe = Recipe("Banana Bread")
             recipe.feedNumber = 2
             recipe.difficulty = "Easy"
-            recipe.ingredients = "carrots/cats/cows/bees/big carrots"
+            recipe.ingredients = "carrots_/cats_/cows_/bees_/big carrots"
             recipe.imageTag = "banana"
             recipeDao.createRecipe(recipe)
 
@@ -63,6 +67,10 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             headPackDao.createHeadPack(headPack)
             headPack = HeadPack("hair 6")
             headPackDao.createHeadPack(headPack)
+        }
+
+        suspend fun populateUserTable(userDao: UserDao) {
+            userDao.createUser(User("current"))
         }
     }
 
