@@ -20,5 +20,7 @@ data class Recipe(
 
     var isComplete: Boolean = false,
 
-    var ingredients: String = "nothing"
+    var ingredients: String = "nothing",
+
+    var steps: String = "cry/die"
 )

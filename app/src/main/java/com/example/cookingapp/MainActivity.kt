@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("difficulty",recipe.difficulty)
             intent.putExtra("prepTimeMin",recipe.prepTimeMin)
             intent.putExtra("ingredients",recipe.ingredients)
+            intent.putExtra("steps",recipe.steps)
             startActivity(intent)
         }
     }
