@@ -40,6 +40,10 @@ class HeadPackAdapter internal constructor(
 
         holder.mPackCost.text = "${current.cost} coins"
 
+        if (current.isBought) {
+            holder.mPackCost.text = "Owned"
+        }
+
         val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.packImage))
         holder.mPackImage.setImageDrawable(packImage)
 

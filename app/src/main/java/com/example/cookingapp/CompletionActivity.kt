@@ -6,10 +6,12 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.cookingapp.recipe.IngredientsAdapter
 import com.example.cookingapp.recipe.StepsAdapter
@@ -27,6 +29,20 @@ class CompletionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_completion)
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        mainViewModel.currentRecipes.observe(this, Observer { recipes ->
+            recipes?.let {
+                val recipeCompleted = intent.getStringExtra("recipeCompleted")
+                for (recipe in it) {
+                    if (recipe.name == recipeCompleted) {
+                        Log.d("testcomplete", "reached")
+                        recipe.isComplete = true
+                        mainViewModel.updateRecipe(recipe)
+                    }
+                }
+            }
+
+        })
 
         val mReturnButton: Button = findViewById(R.id.button_return)
         mReturnButton.setOnClickListener {

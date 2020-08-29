@@ -90,7 +90,9 @@ public abstract class AppRoomDatabase : RoomDatabase() {
         }
 
         suspend fun populateUserTable(userDao: UserDao) {
-            userDao.createUser(User("current"))
+            val user = User("current")
+            user.coins = 10
+            userDao.createUser(user)
         }
     }
 

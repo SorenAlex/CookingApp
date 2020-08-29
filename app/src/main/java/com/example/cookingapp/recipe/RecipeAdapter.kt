@@ -40,6 +40,8 @@ class RecipeAdapter internal constructor(
         val mRecipeDifficulty: TextView = itemView.findViewById(R.id.text_recipe_difficulty)
         val mRecipeTime: TextView = itemView.findViewById(R.id.text_recipe_prep_time)
         val mRecipeImage: ImageView = itemView.findViewById(R.id.recipe_item_image)
+        val mFavourite: ImageView = itemView.findViewById(R.id.favourites_button)
+        val mCompleted: ImageView = itemView.findViewById(R.id.completed_button)
 
         init {
             itemView.setOnClickListener {
@@ -71,6 +73,16 @@ class RecipeAdapter internal constructor(
 
             val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.imageTag))
             holder.mRecipeImage.setImageDrawable(packImage)
+
+            holder.mFavourite.setOnClickListener {
+                val packImage = ContextCompat.getDrawable(context, getDrawableIdByName("ic_baseline_star_highlight"))
+                holder.mFavourite.setImageDrawable(packImage)
+            }
+
+            if (current.isComplete) {
+                val packImage = ContextCompat.getDrawable(context, getDrawableIdByName("ic_baseline_doned"))
+                holder.mCompleted.setImageDrawable(packImage)
+            }
         }
 
     }

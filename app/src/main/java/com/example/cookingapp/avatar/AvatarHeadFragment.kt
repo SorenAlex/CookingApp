@@ -65,7 +65,7 @@ class AvatarHeadFragment: Fragment() {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setMessage("Buy for 20 coins.")
                     builder.setPositiveButton("Buy") {dialog, which ->
-                        user?.addCoins(-1*pack.cost.toInt())
+                        user?.addCoins(-1*pack.cost)
                         mainViewModel.updateUser(user!!)
 
                         // buy the exercise pack

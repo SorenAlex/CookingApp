@@ -86,12 +86,14 @@
                 android:paddingBottom="24dp">
 
                 <ImageView
+                    android:id="@+id/favourites_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:paddingBottom="24dp"
                     android:src="@drawable/ic_baseline_star"/>
                 <ImageView
+                    android:id="@+id/completed_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"

@@ -1,5 +1,6 @@
 package com.example.cookingapp
 
+import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -40,20 +41,31 @@ class DetailedRecipeActivity : AppCompatActivity() {
         val ingredientsList = parseIngredients(ingredientsString)
         //val ingredientsAdapter = IngredientsAdapter(this, R.layout.ingredient_item, ingredientsList)
         val mIngredientsListView: LinearLayout = findViewById(R.id.list_ingredients)
+        val mIngredientsImages: LinearLayout = findViewById(R.id.list_ingredients_images)
         //populate ingredients
         for (ingredient in ingredientsList) {
-            if (ingredient.first() == '#') {
-                val image = ImageView(this)
-                image.maxHeight = 500
-                image.maxWidth = 500
-                image.setPadding(72, 0,0, 0)
-                val packImage = ContextCompat.getDrawable(this, getDrawableIdByName(ingredient))
-                image.setImageDrawable(packImage)
-            }else {
-                val checkBox = CheckBox(this)
-                checkBox.text = ingredient
-                mIngredientsListView.addView(checkBox)
+            if (ingredient.isNotEmpty()){
+                if (ingredient.first() == '#') {
+
+                    val ingredientImage = ingredient.substring(1,ingredient.length)
+                    val image = ImageView(this)
+                    val packImage = ContextCompat.getDrawable(this, getDrawableIdByName(ingredientImage))
+
+                    image.setImageDrawable(packImage)
+                    image.adjustViewBounds = true
+                    image.maxHeight = 180
+                    image.maxWidth = 180
+                    val params = ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,ActionBar.LayoutParams.WRAP_CONTENT)
+                    image.layoutParams=params
+                    image.setPadding(5, 0,0, 0)
+                    mIngredientsImages.addView(image)
+                }else {
+                    val checkBox = CheckBox(this)
+                    checkBox.text = ingredient
+                    mIngredientsListView.addView(checkBox)
+                }
             }
+
 
         }
 
@@ -77,7 +89,9 @@ class DetailedRecipeActivity : AppCompatActivity() {
 
         val mRecipeCompleteButton: Button = findViewById(R.id.button_recipe_complete)
         mRecipeCompleteButton.setOnClickListener {
+
             val intent = Intent(this@DetailedRecipeActivity, CompletionActivity::class.java)
+            intent.putExtra("recipeCompleted",name)
             startActivity(intent)
         }
     }
