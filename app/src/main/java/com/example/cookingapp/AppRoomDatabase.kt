@@ -5,18 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.cookingapp.avatar.headPack.HeadPack
+import com.example.cookingapp.avatar.headPack.HeadPackDao
 import com.example.cookingapp.recipe.Recipe
 import com.example.cookingapp.recipe.RecipeDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Recipe::class],
+    entities = [Recipe::class, HeadPack::class],
     version = 1,
     exportSchema = false)
 public abstract class AppRoomDatabase : RoomDatabase() {
     
     abstract fun recipeDao(): RecipeDao
+    abstract fun headPackDao(): HeadPackDao
 
     private class AppDatabaseCallback(
         private val scope: CoroutineScope
@@ -26,6 +29,7 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     populateRecipeTable(database.recipeDao())
+                    populateHeadPackTable(database.headPackDao())
                 }
             }
         }
@@ -43,6 +47,21 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             recipe = Recipe("Ginger Chicken")
             recipe.cost = 15.55
             recipeDao.createRecipe(recipe)
+        }
+
+        suspend fun populateHeadPackTable(headPackDao: HeadPackDao) {
+            var headPack = HeadPack("hair 1")
+            headPackDao.createHeadPack(headPack)
+            headPack = HeadPack("hair 2")
+            headPackDao.createHeadPack(headPack)
+            headPack = HeadPack("hair 3")
+            headPackDao.createHeadPack(headPack)
+            headPack = HeadPack("hair 4")
+            headPackDao.createHeadPack(headPack)
+            headPack = HeadPack("hair 5")
+            headPackDao.createHeadPack(headPack)
+            headPack = HeadPack("hair 6")
+            headPackDao.createHeadPack(headPack)
         }
     }
 
