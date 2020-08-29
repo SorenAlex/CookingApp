@@ -67,7 +67,7 @@ class RecipeAdapter internal constructor(
             holder.mRecipeName.text = current.name
             holder.mRecipeDesc.text = "Feeds ${current.feedNumber} for $${current.cost}"
             holder.mRecipeDifficulty.text = "Difficulty: ${current.difficulty}"
-            holder.mRecipeTime.text = " Est. Time: ${current.prepTimeMin} min"
+            holder.mRecipeTime.text = "Est. Time: ${current.prepTimeMin} min"
 
             val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.imageTag))
             holder.mRecipeImage.setImageDrawable(packImage)
