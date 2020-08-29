@@ -4,13 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookingapp.R
+import com.example.cookingapp.getDrawableIdByName
 
 class RecipeAdapter internal constructor(
     private var context: Context
@@ -38,7 +38,8 @@ class RecipeAdapter internal constructor(
         val mRecipeName: TextView = itemView.findViewById(R.id.text_recipe_name)
         val mRecipeDesc: TextView = itemView.findViewById(R.id.text_recipe_desc)
         val mRecipeDifficulty: TextView = itemView.findViewById(R.id.text_recipe_difficulty)
-        val mRecipePrepTime: TextView = itemView.findViewById(R.id.text_recipe_prep_time)
+        val mRecipeTime: TextView = itemView.findViewById(R.id.text_recipe_prep_time)
+        val mRecipeImage: ImageView = itemView.findViewById(R.id.recipe_item_image)
 
         init {
             itemView.setOnClickListener {
@@ -65,8 +66,11 @@ class RecipeAdapter internal constructor(
 
             holder.mRecipeName.text = current.name
             holder.mRecipeDesc.text = "Feeds ${current.feedNumber} for $${current.cost}"
-            holder.mRecipeDifficulty.text = "${current.difficulty} Difficulty"
-            holder.mRecipePrepTime.text = "${current.prepTimeMin} min"
+            holder.mRecipeDifficulty.text = "Difficulty: ${current.difficulty}"
+            holder.mRecipeTime.text = " Est. Time: ${current.prepTimeMin} min"
+
+            val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.imageTag))
+            holder.mRecipeImage.setImageDrawable(packImage)
         }
 
     }

@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         recipeAdapter.onItemClick = {recipe ->
             val intent = Intent(this@MainActivity, DetailedRecipeActivity::class.java)
             intent.putExtra("name",recipe.name)
+            intent.putExtra("imageTag",recipe.imageTag)
             intent.putExtra("feedNumber",recipe.feedNumber)
             intent.putExtra("cost",recipe.cost)
             intent.putExtra("difficulty",recipe.difficulty)

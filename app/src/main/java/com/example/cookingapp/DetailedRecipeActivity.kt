@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.cookingapp.recipe.IngredientsAdapter
 import com.example.cookingapp.recipe.StepsAdapter
 import kotlinx.android.synthetic.main.activity_detailed_recipe.*
@@ -19,6 +21,7 @@ class DetailedRecipeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detailed_recipe)
 
         val name = intent.getStringExtra("name")
+        val imageTag = intent.getStringExtra("imageTag")
         val feedNumber = intent.getIntExtra("feedNumber", 1)
         val cost = intent.getDoubleExtra("cost", 0.0)
         val difficulty = intent.getStringExtra("difficulty")
@@ -30,6 +33,10 @@ class DetailedRecipeActivity : AppCompatActivity() {
         text_detail_recipe_desc.text = "Feeds ${feedNumber} for ${cost}"
         text_detail_recipe_difficulty.text = "${difficulty} Difficulty"
         text_detail_recipe_prep_time.text = "Takes ${prepTime} mins"
+
+        val mRecipeImage: ImageView = findViewById(R.id.recipe_image_detailed)
+        val packImage = ContextCompat.getDrawable(this, getDrawableIdByName(imageTag))
+        mRecipeImage.setImageDrawable(packImage)
 
         val ingredientsList = parseIngredients(ingredientsString)
         val ingredientsAdapter = IngredientsAdapter(this, R.layout.ingredient_item, ingredientsList)

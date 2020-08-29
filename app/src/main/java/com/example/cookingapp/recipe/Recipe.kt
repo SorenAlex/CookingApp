@@ -8,6 +8,8 @@ data class Recipe(
     @PrimaryKey
     val name: String,
 
+    var imageTag: String = "ic_placeholder",
+
     var feedNumber: Int = 1,
 
     var cost: Double = 12.50,

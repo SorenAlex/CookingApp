@@ -38,10 +38,11 @@ public abstract class AppRoomDatabase : RoomDatabase() {
             var recipe = Recipe("Dumplings",)
             recipeDao.createRecipe(recipe)
 
-            recipe = Recipe("Steak")
+            recipe = Recipe("Banana Bread")
             recipe.feedNumber = 2
-            recipe.difficulty = "Medium"
+            recipe.difficulty = "Easy"
             recipe.ingredients = "carrots/cats/cows/bees/big carrots"
+            recipe.imageTag = "banana"
             recipeDao.createRecipe(recipe)
 
             recipe = Recipe("Ginger Chicken")
