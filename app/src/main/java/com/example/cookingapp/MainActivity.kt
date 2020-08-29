@@ -1,8 +1,10 @@
 package com.example.cookingapp
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +41,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("prepTimeMin",recipe.prepTimeMin)
             intent.putExtra("ingredients",recipe.ingredients)
             intent.putExtra("steps",recipe.steps)
+            startActivity(intent)
+        }
+
+        val mAvatarImage: ImageView = findViewById(R.id.main_avatar)
+        mAvatarImage.setOnClickListener {
+            val intent = Intent(this@MainActivity, AvatarActivity::class.java)
             startActivity(intent)
         }
     }

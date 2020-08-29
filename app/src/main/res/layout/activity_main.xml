@@ -27,7 +27,8 @@
             android:orientation="horizontal"
             android:background="#CCC">
 
-            <View
+            <ImageView
+                android:id="@+id/main_avatar"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_margin="16dp"
