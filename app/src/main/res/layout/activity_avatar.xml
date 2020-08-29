@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Account Name"
+                android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:textSize="28dp"/>
@@ -52,20 +53,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="32dp"
                     android:text="5 coins"/>
 
-                <ProgressBar
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="8dp"
-                    android:max="1000"
-                    tools:progress="300"/>
             </LinearLayout>
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_margin="centre_"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:max="1000"
+                tools:progress="300"/>
 
         </LinearLayout>
 
