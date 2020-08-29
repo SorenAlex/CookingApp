@@ -79,15 +79,12 @@
             android:text="Ingredients"
             android:textSize="20sp" />
 
-        <ListView
+        <LinearLayout
             android:id="@+id/list_ingredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            tools:itemCount="3"
-            tools:listitem="@layout/ingredient_item" />
+            android:orientation="vertical" />
 
         <TextView
             android:textColor="#f5c680"
@@ -100,15 +97,12 @@
             android:text="Cooking Steps"
             android:textSize="20sp" />
 
-        <ListView
+        <LinearLayout
             android:id="@+id/list_steps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            tools:itemCount="3"
-            tools:listitem="@layout/step_item" />
+            android:orientation="vertical" />
 
         <Button
             android:id="@+id/button_recipe_complete"

@@ -44,9 +44,9 @@ class AvatarActivity : AppCompatActivity() {
 
         TabLayoutMediator(mTabLayout, mViewPager) {tab, position ->
             when (position) {
-                0 -> tab.text = "Head"
-                1 -> tab.text = "Top"
-                2 -> tab.text = "Bottom"
+                0 -> tab.text = "Hair"
+                1 -> tab.text = "Background"
+                2 -> tab.text = "Accessory"
             }
         }.attach()
 
