@@ -3,9 +3,7 @@ package com.example.cookingapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ListView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.cookingapp.recipe.IngredientsAdapter
@@ -40,14 +38,32 @@ class DetailedRecipeActivity : AppCompatActivity() {
         mRecipeImage.setImageDrawable(packImage)
 
         val ingredientsList = parseIngredients(ingredientsString)
-        val ingredientsAdapter = IngredientsAdapter(this, R.layout.ingredient_item, ingredientsList)
-        val mIngredientsListView: ListView = findViewById(R.id.list_ingredients)
-        mIngredientsListView.adapter = ingredientsAdapter
+        //val ingredientsAdapter = IngredientsAdapter(this, R.layout.ingredient_item, ingredientsList)
+        val mIngredientsListView: LinearLayout = findViewById(R.id.list_ingredients)
+        //populate ingredients
+        for (ingredient in ingredientsList) {
+            val checkBox = CheckBox(this)
+            checkBox.text = ingredient
+            mIngredientsListView.addView(checkBox)
+        }
 
         val stepsList = parseSteps(stepsString)
-        val stepsAdapter = StepsAdapter(this, R.layout.step_item, stepsList)
-        val mStepsListView: ListView = findViewById(R.id.list_steps)
-        mStepsListView.adapter = stepsAdapter
+        //val stepsAdapter = StepsAdapter(this, R.layout.step_item, stepsList)
+        val mStepsListView: LinearLayout = findViewById(R.id.list_steps)
+        //populate steps
+        var i = 1
+        for (step in stepsList) {
+            val checkBox = CheckBox(this)
+            checkBox.text = "Step ${i}"
+            i++
+            mStepsListView.addView(checkBox)
+
+            val text = TextView(this)
+            text.text = step
+            text.setPadding(72, 0,0, 0)
+            mStepsListView.addView(text)
+        }
+
 
         val mRecipeCompleteButton: Button = findViewById(R.id.button_recipe_complete)
         mRecipeCompleteButton.setOnClickListener {
