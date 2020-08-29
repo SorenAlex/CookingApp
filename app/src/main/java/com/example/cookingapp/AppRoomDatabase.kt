@@ -39,18 +39,32 @@ public abstract class AppRoomDatabase : RoomDatabase() {
         }
 
         suspend fun populateRecipeTable(recipeDao: RecipeDao) {
-            var recipe = Recipe("Dumplings",)
+            var recipe = Recipe("Chocolate Chip Cookies")
+            recipe.difficulty = "Easy"
+            recipe.imageTag = "cookies"
+            recipeDao.createRecipe(recipe)
+
+            recipe = Recipe("Spaghetti Carbonara")
+            recipe.difficulty = "Easy"
+            recipe.imageTag = "carbonara"
+            recipeDao.createRecipe(recipe)
+
+            recipe = Recipe("Dumplings")
+            recipe.difficulty = "Easy"
+            recipe.imageTag = "dumps"
             recipeDao.createRecipe(recipe)
 
             recipe = Recipe("Banana Bread")
             recipe.feedNumber = 2
             recipe.difficulty = "Easy"
-            recipe.ingredients = "carrots_/cats_/cows_/bees_/big carrots"
-            recipe.imageTag = "banana"
+            recipe.ingredients = "2 cups all-purpose flour_/1 tsp baking soda_/1/4 tsp salt_/1/2 cup unsalted butter at room temperature_/3/4 cup dark brown sugar_/2 large eggs, at room temperature_/4 bananas(mashed)_/1 tsp pure vanilla extract"
+            recipe.imageTag = "bananabread"
+            recipe.steps = "Preheat the oven to 350°F (177°C)._/Grease a 9×5-inch loaf pan or coat with nonstick spray. Set aside._/Whisk the flour, baking soda and salt together in a large bowl. These are the dry ingredients._/Mix the butter and brown sugar together in another large bowl until smooth and creamy._/Add the eggs one at a time, mixing well after each addition._/Add mashed bananas and vanilla extract, mixing until well combined._/Gradually add the dry ingredients into the wet ingredients until no flour pockets remain but do not overmix._/Spoon the batter into the prepared baking pan and bake for 60-65 minutes. Loosely cover the bread with aluminum foil after 30 minutes to help prevent the top and sides from getting too brown._/Remove from the oven and allow the banana bread to cool completely."
             recipeDao.createRecipe(recipe)
 
-            recipe = Recipe("Ginger Chicken")
-            recipe.cost = 15.55
+            recipe = Recipe("Blueberry Muffins")
+            recipe.difficulty = "Easy"
+            recipe.imageTag = "muff"
             recipeDao.createRecipe(recipe)
         }
 
