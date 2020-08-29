@@ -1,7 +1,9 @@
 package com.example.cookingapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cookingapp.recipe.IngredientsAdapter
@@ -38,6 +40,12 @@ class DetailedRecipeActivity : AppCompatActivity() {
         val stepsAdapter = StepsAdapter(this, R.layout.step_item, stepsList)
         val mStepsListView: ListView = findViewById(R.id.list_steps)
         mStepsListView.adapter = stepsAdapter
+
+        val mRecipeCompleteButton: Button = findViewById(R.id.button_recipe_complete)
+        mRecipeCompleteButton.setOnClickListener {
+            val intent = Intent(this@DetailedRecipeActivity, CompletionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun parseIngredients(ingredientsString: String): List<String> {

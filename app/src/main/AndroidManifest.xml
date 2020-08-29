@@ -23,6 +23,12 @@
 
         </activity>
 
+        <activity
+            android:name=".CompletionActivity"
+            android:parentActivityName=".DetailedRecipeActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
