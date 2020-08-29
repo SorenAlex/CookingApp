@@ -60,13 +60,12 @@ class AvatarBackgroundFragment: Fragment() {
         headPackAdapter.onItemClick = {pack ->
             if (!pack.isBought) {
                 if (userCoins > 20) {
-                    val user = mainViewModel.currentUser.value
+                    val user = mainViewModel.currentUser.value!!
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setMessage("Buy for 20 coins.")
                     builder.setPositiveButton("Buy") {dialog, which ->
-                        user?.addCoins(-1*pack.cost.toInt())
-                        mainViewModel.updateUser(user!!)
+
 
                         // buy the exercise pack
                         pack.buy(mainViewModel)

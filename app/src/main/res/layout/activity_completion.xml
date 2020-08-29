@@ -9,10 +9,10 @@
         android:id="@+id/recipe_img"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="80dp"
         android:layout_gravity="center"
         android:scaleType="fitXY"
-        android:background="#999" />
+        android:background="#0000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,22 +23,6 @@
         android:textColor="#f5c680"
         android:textStyle="bold"
         android:text="Recipe Complete"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="15 XP earned"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="12 coins earned"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,6 +40,22 @@
         android:textSize="20sp"
         android:text="New recipes unlocked!"
         android:textColor="#eb8034"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="15 XP earned"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="12 coins earned"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

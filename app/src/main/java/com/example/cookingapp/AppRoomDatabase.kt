@@ -72,6 +72,7 @@ public abstract class AppRoomDatabase : RoomDatabase() {
         suspend fun populateHeadPackTable(headPackDao: HeadPackDao) {
             var headPack = HeadPack("hairAang")
             headPack.packImage = "hair_aang"
+            headPack.isBought = true
             headPackDao.createHeadPack(headPack)
 
             headPack = HeadPack("hairKyoshi")
