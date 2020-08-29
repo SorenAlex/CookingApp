@@ -120,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginRight="16dp"
+            android:background="#ffe6a1"
             android:text="Complete" />
 
     </LinearLayout>
