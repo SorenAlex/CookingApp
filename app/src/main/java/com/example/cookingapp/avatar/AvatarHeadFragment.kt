@@ -53,8 +53,10 @@ class AvatarHeadFragment: Fragment() {
 
             headPackAdapter.setHeadPacks(list)
         })
-        mainViewModel.currentUser.observe(viewLifecycleOwner, Observer {
-            userCoins = it.coins.toInt()
+        mainViewModel.currentUser.observe(viewLifecycleOwner, Observer {user ->
+            user?.let{
+                userCoins = it.coins.toInt()
+            }
         })
 
         headPackAdapter.onItemClick = {pack ->
@@ -79,7 +81,7 @@ class AvatarHeadFragment: Fragment() {
                 }
             } else {
                 //nothing happens if already bought
-                pack.setUser(mainViewModel)
+                pack.setUser(mainViewModel, true)
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.cookingapp.recipe
 
 import android.content.Context
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookingapp.R
+import com.example.cookingapp.decodeSampledBitmapFromResource
 import com.example.cookingapp.getDrawableIdByName
 
 class RecipeAdapter internal constructor(
@@ -71,8 +73,10 @@ class RecipeAdapter internal constructor(
             holder.mRecipeDifficulty.text = "Difficulty: ${current.difficulty}"
             holder.mRecipeTime.text = "Est. Time: ${current.prepTimeMin} min"
 
-            val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.imageTag))
-            holder.mRecipeImage.setImageDrawable(packImage)
+            holder.mRecipeImage.setImageBitmap(
+                decodeSampledBitmapFromResource(context.resources,
+                    getDrawableIdByName(current.imageTag) ,256,256)
+            )
 
             holder.mFavourite.setOnClickListener {
                 val packImage = ContextCompat.getDrawable(context, getDrawableIdByName("ic_baseline_star_highlight"))

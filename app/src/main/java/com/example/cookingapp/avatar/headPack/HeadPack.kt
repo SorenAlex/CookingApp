@@ -22,17 +22,19 @@ data class HeadPack(
         isBought = true
 
 
-        setUser(mainViewModel)
+        setUser(mainViewModel, false)
     }
 
-    fun setUser(mainViewModel: MainViewModel) {
+    fun setUser(mainViewModel: MainViewModel, isSet: Boolean) {
         when (name) {
             "hairAang" -> {
                 val user = mainViewModel.currentUser.value
 
                 if (user != null) {
                     user.hair = "aang"
-                    user.coins -= 20
+                    if (!isSet) {
+                        user.coins -= 20
+                    }
                     mainViewModel.updateUser(user)
                 }
             }
@@ -41,7 +43,9 @@ data class HeadPack(
 
                 if (user != null) {
                     user.hair = "kyoshi"
-                    user.coins -= 20
+                    if (!isSet) {
+                        user.coins -= 20
+                    }
                     mainViewModel.updateUser(user)
                 }
             }
@@ -52,7 +56,9 @@ data class HeadPack(
 
                 if (user != null) {
                     user.background = "fry"
-                    user.coins -= 20
+                    if (!isSet) {
+                        user.coins -= 20
+                    }
                     mainViewModel.updateUser(user)
                 }
             }
@@ -61,7 +67,9 @@ data class HeadPack(
 
                 if (user != null) {
                     user.background = "hat"
-                    user.coins -= 20
+                    if (!isSet) {
+                        user.coins -= 20
+                    }
                     mainViewModel.updateUser(user)
                 }
             }

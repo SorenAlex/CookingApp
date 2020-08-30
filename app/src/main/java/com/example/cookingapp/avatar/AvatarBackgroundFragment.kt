@@ -80,7 +80,7 @@ class AvatarBackgroundFragment: Fragment() {
                 }
             } else {
                 //nothing happens if already bought
-                pack.setUser(mainViewModel)
+                pack.setUser(mainViewModel, true)
             }
         }
     }

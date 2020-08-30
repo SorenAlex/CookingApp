@@ -57,10 +57,13 @@ class AvatarActivity : AppCompatActivity() {
                 mCoinText.text = "${it.coins} coins"
                 mLevelText.text = "Level ${it.level}"
 
-                setupAvatarImage(it, mAvatarImage, mainViewModel)
+                val imageName = setupAvatarImage(it, mAvatarImage, mainViewModel)
 
-                val avatarImage = ContextCompat.getDrawable(this, getDrawableIdByName(it.image))
-                mAvatarImage.setImageDrawable(avatarImage)
+
+                mAvatarImage.setImageBitmap(
+                    decodeSampledBitmapFromResource(this.resources,
+                        getDrawableIdByName(imageName) ,400,400)
+                )
             }
         })
 

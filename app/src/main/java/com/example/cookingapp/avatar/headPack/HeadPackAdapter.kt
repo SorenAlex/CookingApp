@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookingapp.R
+import com.example.cookingapp.decodeSampledBitmapFromResource
 import com.example.cookingapp.getDrawableIdByName
 
 class HeadPackAdapter internal constructor(
@@ -44,8 +45,10 @@ class HeadPackAdapter internal constructor(
             holder.mPackCost.text = "Owned"
         }
 
-        val packImage = ContextCompat.getDrawable(context, getDrawableIdByName(current.packImage))
-        holder.mPackImage.setImageDrawable(packImage)
+        holder.mPackImage.setImageBitmap(
+            decodeSampledBitmapFromResource(context.resources,
+                getDrawableIdByName(current.packImage) ,100,100)
+        )
 
     }
 
